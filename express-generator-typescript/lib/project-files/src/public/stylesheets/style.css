@@ -3,31 +3,36 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-body .users-column {
+body .deployments-column {
   display: inline-block;
   margin-right: 2em;
   vertical-align: top;
 }
 
-body .users-column .column-header {
+body .deployments-column .column-header {
   padding-bottom: 5px;
   font-weight: 700;
   font-size: 1.2em;
 }
 
-body .add-user-col input {
+body .remove-deployment-col input {
   margin-bottom: 10px;
 }
 
-body .users-column .user-display-ele {
+body .deployments-column .deployment-display-ele {
   padding-bottom: 10px;
 }
 
-body .users-column .user-display-ele button {
+body .deployments-column .deployment-display-ele button {
   margin-top: 2px;
   margin-bottom: 10px;
 }
 
-body .users-column .user-display-ele .edit-view {
+body .deployments-column .deployment-display-ele .edit-view {
   display: none;
+}
+
+body #spinner {
+  display: none;
+  padding-bottom: 20px;
 }

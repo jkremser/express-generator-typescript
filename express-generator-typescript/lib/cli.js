@@ -8,21 +8,11 @@
 
 const path = require('path');
 const expressGenTs = require('./express-generator-typescript');
-
-
-let destination;
-let withAuth = false;
-if (process.argv[2] === '--with-auth') {
-    withAuth = true;
-    destination = getDest(process.argv[3]);
-} else {
-    destination = getDest(process.argv[2]);
-}
-
+const destination = getDest(process.argv[2]);
 
 console.log('Setting up new Express/TypeScript project...');
 
-expressGenTs(destination, withAuth).then(() => {
+expressGenTs(destination).then(() => {
     console.log('Project setup complete!');
 });
 

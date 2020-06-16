@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import UserRouter from './Users';
+import DeploymentRouter from './Deployments';
 
 // Init router and path
 const router = Router();
 
 // Add sub-routes
-router.use('/users', UserRouter);
+router.use('/deployments', DeploymentRouter);
 
 // Export the base-router
 export default router;

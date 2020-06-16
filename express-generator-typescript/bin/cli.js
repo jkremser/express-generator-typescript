@@ -21,7 +21,7 @@ if (process.argv[2] === '--with-auth') {
 
 
 
-console.log('Setting up new Express/TypeScript project...');
+console.log('Setting up new Express/TypeScript/Kubernetes project...');
 
 expressGenTs(destination, withAuth).then(() => {
     console.log('Project setup complete!');

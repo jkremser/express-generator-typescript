@@ -10,11 +10,11 @@ const childProcess = require('child_process');
 const ncp = require('ncp').ncp;
 
 
-async function expressGenTs(destination, withAuth) {
+async function expressGenTs(destination) {
     try {
-        await copyProjectFiles(destination, withAuth);
+        await copyProjectFiles(destination);
         updatePackageJson(destination);
-        const dep = getDepStrings(withAuth);
+        const dep = getDepStrings();
         downloadNodeModules(destination, dep);
     } catch (err) {
         console.error(err);
@@ -22,8 +22,8 @@ async function expressGenTs(destination, withAuth) {
 }
 
 
-function copyProjectFiles(destination, withAuth) {
-    const prjFolder = (withAuth ? './auth-proj' : './project-files');
+function copyProjectFiles(destination) {
+    const prjFolder = './project-files';
     const source = path.join(__dirname, prjFolder);
     return new Promise((resolve, reject) => {
         ncp.limit = 16;
@@ -45,18 +45,13 @@ function updatePackageJson(destination) {
 }
 
 
-function getDepStrings(withAuth) {
+function getDepStrings() {
     let dependencies = 'express dotenv http-status-codes morgan cookie-parser winston ' +
-        'module-alias command-line-args express-async-errors helmet';
+        'module-alias command-line-args express-async-errors helmet @kubernetes/client-node';
     let devDependencies = 'ts-node tslint typescript nodemon find jasmine supertest ' +
         '@types/node @types/express @types/jasmine @types/find @types/morgan ' +
         '@types/cookie-parser @types/supertest fs-extra tsconfig-paths @types/jsonfile ' +
         'jsonfile @types/command-line-args @types/helmet';
-    if (withAuth) {
-        dependencies += ' bcrypt randomstring jsonwebtoken';
-        devDependencies += ' @types/bcrypt @types/randomstring @types/jsonwebtoken ' +
-            'tslint-lines-between-class-members';
-    }
     return {dependencies, devDependencies};
 }
 
