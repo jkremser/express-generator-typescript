@@ -1,16 +1,24 @@
-<img alt='overnightjs' src='https://github.com/seanpmaxwell/express-generator-typescript/raw/master/express-typescript.png' border='0'>
+<img alt='overnightjs' src='https://github.com/jkremser/express-generator-typescript/raw/master/express-typescript-kubernetes.png' border='0'>
 
 [Express](https://www.npmjs.com/package/express) with [TypeScript's](https://www.npmjs.com/package/typescript) application generator.
 
-<a href="https://www.npmjs.com/package/express-generator-typescript" target="_blank"><img src="https://img.shields.io/npm/v/express-generator-typescript.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/package/express-generator-typescript" target="_blank"><img src="https://img.shields.io/npm/l/express-generator-typescript.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/package/express-generator-typescript" target="_blank"><img src="https://img.shields.io/npm/dm/express-generator-typescript.svg" alt="NPM Downloads" /></a>
+<a href="https://www.npmjs.com/package/express-generator-typescript-kubernetes" target="_blank"><img src="https://img.shields.io/npm/v/express-generator-typescript-kubernetes.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/package/express-generator-typescript-kubernetes" target="_blank"><img src="https://img.shields.io/npm/l/express-generator-typescript-kubernetes.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/package/express-generator-typescript-kubernetes" target="_blank"><img src="https://img.shields.io/npm/dm/express-generator-typescript-kubernetes.svg" alt="NPM Downloads" /></a>
 
 
 ## What is it?
 
 Creates a new express application similar to the _express-generator_ module. Except this new
-application is configured to use TypeScript instead of plain JavaScript. 
+application is configured to use TypeScript instead of plain JavaScript. This simple application
+is pre-configured to use [kubernetes client](https://github.com/kubernetes-client/javascript).
+
+It contains a simple REST endpoint for working with deployments in the Kubernetes cluster. Part of the 
+application is a very simple web ui that lists the deployments and allows to delete a deployment.
+
+This project is based on a repo [express-generator-typescript](https://github.com/seanpmaxwell/express-generator-typescript.git)
+created by [Sean Maxwell](https://github.com/seanpmaxwell) and adds the Kubernetes example on top of it (also some other changes).
+The license remains the same.
 
 
 
@@ -36,15 +44,9 @@ and `_moduleAliases` in _package.json_ if you want to add/edit the relative path
 
 ## Sample-project
 
-When you run _express-generator-typescript_, it sets up a very simple application with routes for
-adding, updating, deleting, and fetching user objects. This is just to demonstrate how routing is done
+When you run _express-generator-typescript-kubernetes_, it sets up a very simple application with routes for
+adding, updating, deleting, and fetching deployment objects. This is just to demonstrate how routing is done
 with express.
-
-If you want a fully-secure application, you can pass the `--with-auth` option and you will have an
-application which requires you to logon before calling APIs on user objects. The app is 
-configured with production quality client-side security and uses signed-cookies and jsonwebtokens 
-to store user-session data. If you're new to web-development and still learning about securing websites,
-I highly encourage to use this option.
 
 
 ## Installation
@@ -52,7 +54,7 @@ I highly encourage to use this option.
 ```sh
 $ Just use 'npx'
   Or
-$ npm install -g express-generator-typescript
+$ npm install -g express-generator-typescript-kubernetes
 ```
 
 
@@ -64,12 +66,10 @@ If you don't specify a project name, the default _express-gen-ts_ will be used i
 Create the app:
 
 ```bash
-$ npx express-generator-typescript "project name (default is express-gen-ts)"
-OR
-$ npx express-generator-typescript --with-auth "project name (default is express-gen-ts)"
-```
+$ npx express-generator-typescript-kubernetes "project name (default is express-gen-ts)"
 
-Start your express-generator-typescript app in development mode at `http://localhost:3000/`:
+
+Start your express-generator-typescript-kubernetes app in development mode at `http://localhost:3000/`:
 
 ```bash
 $ cd "project name" && npm run start:dev
@@ -80,7 +80,6 @@ $ cd "project name" && npm run start:dev
 
 - Run the server in development mode: `npm run start:dev`.
 - Run all unit-tests: `npm test`.
-- Run a single unit-test: `npm test -- --testFile="name of test file" (i.e. --testFile=Users)`.
 - Check for linting errors: `npm run lint`.
 - Build the project for production: `npm run build`.
 - Run the production build: `npm start`.
@@ -93,14 +92,6 @@ are detected. If you want to enable debugging for node, you'll need to modify th
 This is located under `nodemonConfig:` in `package.json` for the server and `./spec/nodemon.json` for
 unit-testing. For the `exec` property, replace `ts-node` with `node --inspect -r ts-node/register`.
 
-
-## Note for windows users
-
-If you use the `--with-auth` option and are on Windows, the `bcrypt` module tends to be fussy. To
-use this module on Windows you need to make sure you have the node Windows build tools installed.
-I don't want to post instructions because they might change frequently. I would search the Microsoft
-docs on how to setup Node for Windows. To be able to debug in VSCODE on windows I also had to install
-the `node-gyp` module globally as well.
 
 Happy web-deving :)
 
