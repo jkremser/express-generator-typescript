@@ -22,7 +22,7 @@ The license remains the same.
 
 
 
-## Why express-generator-typescript?
+## Why express-generator-typescript-kubernetes?
 
 NodeJS is great for the rapid development of web-projects, but is often neglected because of the lack of
 type safety. TypeScript solves this issue and (along with its linter file) can even make your code
@@ -87,7 +87,7 @@ $ cd "project name" && npm run start:dev
 
 
 ## Debugging
-During development, _express-generator-typescript_ uses `nodemon` to restart the server when changes
+During development, _express-generator-typescript-kubernetes_ uses `nodemon` to restart the server when changes
 are detected. If you want to enable debugging for node, you'll need to modify the nodemon configurations.
 This is located under `nodemonConfig:` in `package.json` for the server and `./spec/nodemon.json` for
 unit-testing. For the `exec` property, replace `ts-node` with `node --inspect -r ts-node/register`.
