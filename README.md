@@ -18,6 +18,12 @@ Create the app:
 $ npx express-generator-typescript-k8s "myApp" # default name is express-gen-ts-k8s"
 ```
 
+If you want the OpenAPI spec and Swagger UI:
+
+```bash
+$ npx express-generator-typescript-k8s --openAPI "myApp"
+```
+
 Start your newly generaed app in development mode at `http://localhost:3000/`:
 
 ```bash
