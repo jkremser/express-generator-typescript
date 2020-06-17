@@ -9,3 +9,7 @@
 # Misc
 **/node_modules
 **/package-lock.json
+
+
+
+express-gen-ts-k8s/

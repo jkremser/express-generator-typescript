@@ -3,32 +3,22 @@
 /**
  * Create new express-generator-typescript project.
  *
- * created by Sean Maxwell, 5/31/2019
+ * originally created by Sean Maxwell, 5/31/2019
+ * enhanced w/ k8s by jkremser
  */
 
 const path = require('path');
-const expressGenTs = require('../lib/express-generator-typescript');
+const expressGenTs = require('../lib/express-generator-typescript-k8s');
+const destination = getDest(process.argv[2]);
 
+console.log('Setting up new Express+TypeScript+Kubernetes project...');
 
-let destination;
-let withAuth = false;
-if (process.argv[2] === '--with-auth') {
-    withAuth = true;
-    destination = getDest(process.argv[3]);
-} else {
-    destination = getDest(process.argv[2]);
-}
-
-
-
-console.log('Setting up new Express/TypeScript/Kubernetes project...');
-
-expressGenTs(destination, withAuth).then(() => {
+expressGenTs(destination).then(() => {
     console.log('Project setup complete!');
 });
 
 
 function getDest(destFolder) {
-    destFolder = (destFolder || 'express-gen-ts');
+    destFolder = (destFolder || 'express-gen-ts-k8s');
     return path.join(process.cwd(), destFolder);
 }
