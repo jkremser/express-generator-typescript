@@ -67,7 +67,7 @@ Create the app:
 
 ```bash
 $ npx express-generator-typescript-k8s "project name (default is express-gen-ts-k8s)"
-
+```
 
 Start your express-generator-typescript-k8s app in development mode at `http://localhost:3000/`:
 
