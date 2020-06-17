@@ -1,6 +1,6 @@
 {
   "name": "express-generator-typescript-k8s",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a new Express applications similar to express-generate with Kubernetes client and Typescript configured.",
   "scripts": {
     "express-generator-typescript": "node bin/cli.js",
