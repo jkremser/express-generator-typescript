@@ -24,6 +24,12 @@ Start your newly generaed app in development mode at `http://localhost:3000/`:
 $ cd "myApp" && npm run start:dev
 ```
 
+make a Rest call either from the sample webapp, or using curl:
+
+```bash
+curl http://localhost:3000/api/deployments
+```
+
 ## What is it?
 
 Creates a new express application similar to the _express-generator_ module. Except this new

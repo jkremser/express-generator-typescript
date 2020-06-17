@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Deployments</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="/api-docs">API</a>
+            <a href="https://github.com/jkremser/express-generator-typescript-k8s">Project page</a>
+        </div>
+
+        <!-- Remove deployment -->
+        <div class="deployments-column remove-deploymen t-col">
+        </div>
+
+        <div id="spinner">
+            Fetching data..
+        </div>
+
+        <!-- Display deployments -->
+        <div class="deployments-column">
+            <div class="column-header">Deployments:</div>
+            <div id="all-deployments-anchor"></div>
+        </div>
+
+    </body>
+    <script src="scripts/index.js"></script>
+</html>

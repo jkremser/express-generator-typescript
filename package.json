@@ -42,9 +42,9 @@
     "routing"
   ],
   "author": "Jiri Kremser",
-  "contributors" : [
+  "contributors": [
     {
-    "name": "sean maxwell"
+      "name": "sean maxwell"
     }
   ],
   "license": "MIT",

@@ -12,10 +12,14 @@ const router = Router();
 
 
 /******************************************************************************
- *                      Get All Deployments - "GET /api/deployments/all"
+ *                      Get All Deployments - "GET /api/deployments/"
  ******************************************************************************/
 
-router.get('/all', async (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
+    if (k8sAppsApi === null) {
+        console.log('K8s client hasn\'t been initialized properly. Is the cluster running?');
+        return res.status(OK).json({deployments: []});
+    }
     const k8sDeployments = await k8sAppsApi.listDeploymentForAllNamespaces();
     const deployments = k8sDeployments.body.items.map(Deployment.parseDeployment);
     console.log(deployments);
@@ -24,10 +28,10 @@ router.get('/all', async (req: Request, res: Response) => {
 
 
 /******************************************************************************
- *                       Add One - "POST /api/deployments/add"
+ *                       Add One - "POST /api/deployments/"
  ******************************************************************************/
 
-router.post('/add', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
     const { deployment } = req.body;
     if (!deployment) {
         return res.status(BAD_REQUEST).json({
@@ -40,10 +44,10 @@ router.post('/add', async (req: Request, res: Response) => {
 
 
 /******************************************************************************
- *                       Update - "PUT /api/deployments/update"
+ *                       Update - "PUT /api/deployments/"
  ******************************************************************************/
 
-router.put('/update', async (req: Request, res: Response) => {
+router.put('/', async (req: Request, res: Response) => {
     const { deployment } = req.body;
     if (!deployment) {
         return res.status(BAD_REQUEST).json({
@@ -56,10 +60,14 @@ router.put('/update', async (req: Request, res: Response) => {
 
 
 /******************************************************************************
- *                    Delete - "DELETE /api/deployments/delete/:name"
+ *                    Delete - "DELETE /api/deployments/:name"
  ******************************************************************************/
 
-router.delete('/delete/:name', async (req: Request, res: Response) => {
+router.delete('/:name', async (req: Request, res: Response) => {
+    if (k8sAppsApi === null) {
+        console.log('K8s client hasn\'t been initialized properly. Is the cluster running?');
+        return res.status(OK).end();
+    }
     const { name } = req.params as ParamsDictionary;
     await k8sAppsApi.deleteNamespacedDeployment(name, 'default');
     return res.status(OK).end();

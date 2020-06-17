@@ -9,11 +9,19 @@
 
 const path = require('path');
 const expressGenTs = require('../lib/express-generator-typescript-k8s');
-const destination = getDest(process.argv[2]);
+
+let destination;
+let openAPI = false;
+if (process.argv[2] === '--openAPI') {
+    openAPI = true;
+    destination = getDest(process.argv[3]);
+} else {
+    destination = getDest(process.argv[2]);
+}
 
 console.log('Setting up new Express+TypeScript+Kubernetes project...');
 
-expressGenTs(destination).then(() => {
+expressGenTs(destination, openAPI).then(() => {
     console.log('Project setup complete!');
 });
 

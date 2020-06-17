@@ -6,6 +6,7 @@ body {
 body .deployments-column {
   display: inline-block;
   margin-right: 2em;
+  margin-top: 2em;
   vertical-align: top;
 }
 
