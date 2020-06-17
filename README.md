@@ -7,6 +7,23 @@
 <a href="https://www.npmjs.com/package/express-generator-typescript-k8s" target="_blank"><img src="https://img.shields.io/npm/dm/express-generator-typescript-k8s.svg" alt="NPM Downloads" /></a>
 
 
+## Quick Start
+
+The quickest way to get started is by using npx and pass in the name of the project you want to create.
+If you don't specify a project name, the default _express-gen-ts-k8s_ will be used instead.
+
+Create the app:
+
+```bash
+$ npx express-generator-typescript-k8s "myApp" # default name is express-gen-ts-k8s"
+```
+
+Start your newly generaed app in development mode at `http://localhost:3000/`:
+
+```bash
+$ cd "myApp" && npm run start:dev
+```
+
 ## What is it?
 
 Creates a new express application similar to the _express-generator_ module. Except this new
@@ -14,7 +31,10 @@ application is configured to use TypeScript instead of plain JavaScript. This si
 is pre-configured to use [kubernetes client](https://github.com/kubernetes-client/javascript).
 
 It contains a simple REST endpoint for working with deployments in the Kubernetes cluster. Part of the 
-application is a very simple web ui that lists the deployments and allows to delete a deployment.
+application is a very simple web ui that lists the deployments and allows to delete a deployment. You should
+be able to see the same deployments as your `kubectl get deployments` command. The k8s client has the auto-configure
+capability so that it reads the information about the cluster and the baerer token from the kubeconfig or from the correct 
+location (mounted secrets w/ the token and CA cert) when running on a pod in k8s cluster.
 
 This project is based on a repo [express-generator-typescript](https://github.com/seanpmaxwell/express-generator-typescript.git)
 created by [Sean Maxwell](https://github.com/seanpmaxwell) and adds the Kubernetes example on top of it (also some other changes).
@@ -55,24 +75,6 @@ with express.
 $ Just use 'npx'
   Or
 $ npm install -g express-generator-typescript-k8s
-```
-
-
-## Quick Start
-
-The quickest way to get started is use npx and pass in the name of the project you want to create.
-If you don't specify a project name, the default _express-gen-ts_ will be used instead.
-
-Create the app:
-
-```bash
-$ npx express-generator-typescript-k8s "project name (default is express-gen-ts-k8s)"
-```
-
-Start your express-generator-typescript-k8s app in development mode at `http://localhost:3000/`:
-
-```bash
-$ cd "project name" && npm run start:dev
 ```
 
 
