@@ -1,5 +1,5 @@
 {
-  "name": "express-gen-ts",
+  "name": "express-gen-ts-k8s",
   "version": "0.0.0",
   "scripts": {
     "build": "node build.js",

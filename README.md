@@ -1,10 +1,10 @@
-<img alt='overnightjs' src='https://github.com/jkremser/express-generator-typescript/raw/master/express-typescript-kubernetes.png' border='0'>
+<img alt='overnightjs' src='https://github.com/jkremser/express-generator-typescript/raw/master/express-typescript-k8s.png' border='0'>
 
 [Express](https://www.npmjs.com/package/express) with [TypeScript's](https://www.npmjs.com/package/typescript) application generator.
 
-<a href="https://www.npmjs.com/package/express-generator-typescript-kubernetes" target="_blank"><img src="https://img.shields.io/npm/v/express-generator-typescript-kubernetes.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/package/express-generator-typescript-kubernetes" target="_blank"><img src="https://img.shields.io/npm/l/express-generator-typescript-kubernetes.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/package/express-generator-typescript-kubernetes" target="_blank"><img src="https://img.shields.io/npm/dm/express-generator-typescript-kubernetes.svg" alt="NPM Downloads" /></a>
+<a href="https://www.npmjs.com/package/express-generator-typescript-k8s" target="_blank"><img src="https://img.shields.io/npm/v/express-generator-typescript-k8s.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/package/express-generator-typescript-k8s" target="_blank"><img src="https://img.shields.io/npm/l/express-generator-typescript-k8s.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/package/express-generator-typescript-k8s" target="_blank"><img src="https://img.shields.io/npm/dm/express-generator-typescript-k8s.svg" alt="NPM Downloads" /></a>
 
 
 ## What is it?
@@ -22,7 +22,7 @@ The license remains the same.
 
 
 
-## Why express-generator-typescript-kubernetes?
+## Why express-generator-typescript-k8s?
 
 NodeJS is great for the rapid development of web-projects, but is often neglected because of the lack of
 type safety. TypeScript solves this issue and (along with its linter file) can even make your code
@@ -44,7 +44,7 @@ and `_moduleAliases` in _package.json_ if you want to add/edit the relative path
 
 ## Sample-project
 
-When you run _express-generator-typescript-kubernetes_, it sets up a very simple application with routes for
+When you run _express-generator-typescript-k8s_, it sets up a very simple application with routes for
 adding, updating, deleting, and fetching deployment objects. This is just to demonstrate how routing is done
 with express.
 
@@ -54,7 +54,7 @@ with express.
 ```sh
 $ Just use 'npx'
   Or
-$ npm install -g express-generator-typescript-kubernetes
+$ npm install -g express-generator-typescript-k8s
 ```
 
 
@@ -66,10 +66,10 @@ If you don't specify a project name, the default _express-gen-ts_ will be used i
 Create the app:
 
 ```bash
-$ npx express-generator-typescript-kubernetes "project name (default is express-gen-ts)"
+$ npx express-generator-typescript-k8s "project name (default is express-gen-ts)"
 
 
-Start your express-generator-typescript-kubernetes app in development mode at `http://localhost:3000/`:
+Start your express-generator-typescript-k8s app in development mode at `http://localhost:3000/`:
 
 ```bash
 $ cd "project name" && npm run start:dev
@@ -87,7 +87,7 @@ $ cd "project name" && npm run start:dev
 
 
 ## Debugging
-During development, _express-generator-typescript-kubernetes_ uses `nodemon` to restart the server when changes
+During development, _express-generator-typescript-k8s_ uses `nodemon` to restart the server when changes
 are detected. If you want to enable debugging for node, you'll need to modify the nodemon configurations.
 This is located under `nodemonConfig:` in `package.json` for the server and `./spec/nodemon.json` for
 unit-testing. For the `exec` property, replace `ts-node` with `node --inspect -r ts-node/register`.
